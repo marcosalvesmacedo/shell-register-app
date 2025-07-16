@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RegisterFacade } from './facades/register.facade';
+import { REGISTER_MESSAGES } from './constants/commons.constants';
 
 @Component({
   selector: 'app-user-register',
@@ -6,16 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-register.component.scss']
 })
 export class UserRegisterComponent {
+  public labels = REGISTER_MESSAGES
 
-  public displayedColumns: string[] = ['code', 'fullname', 'email'];
-  public dataSource: any[] = [
-    {code: 1, name: 'Hydrogen', email: 'H'},
-    {code: 2, name: 'Helium', email: 'He'},
-    {code: 3, name: 'Lithium', email: 'Li'}
-  ]
-
-  
-  constructor() { 
-  }
+  constructor(
+    public registerFacade: RegisterFacade
+  ) {}
 
 }

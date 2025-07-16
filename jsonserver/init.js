@@ -9,5 +9,5 @@ nodemon.on('start', () => {
 }).on('quit', () => {
     console.log('app terminou');
 }).on('restart', () => {
-    console.log('app terminou');
+    console.log('app reiniciou');
 });

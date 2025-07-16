@@ -7,15 +7,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserListComponent } from './features/user-list/user-list.component';
 import { WelcomeComponent } from './features/welcome/welcome.component';
+import { RequestInterceptor } from './core/interceptors/request.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderComponent } from './core/components/loader/loader.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    UserListComponent
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,13 @@ import { WelcomeComponent } from './features/welcome/welcome.component';
     MatMenuModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

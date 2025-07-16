@@ -2,9 +2,7 @@ import { Injectable } from "@angular/core";
 import { RegisterAdaptedResponse, RegisterResponse } from "../models/register.model";
 import { UserRegisterModule } from "../user-register.module";
 
-@Injectable({
-    providedIn: UserRegisterModule
-})
+@Injectable()
 export class RegisterAdapter {
 
     public adaptRegister(register: RegisterResponse): RegisterAdaptedResponse {

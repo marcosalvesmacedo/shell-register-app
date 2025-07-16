@@ -15,8 +15,8 @@ const routes: Routes = [
      },
      {
           path: 'lista-de-usuarios',
-          component: UserListComponent
-     },
+          loadChildren: () => import('./features/user-list/user-list.module').then(m => m.UserListModule),
+     }
 ];
 
 @NgModule({

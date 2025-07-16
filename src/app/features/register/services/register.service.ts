@@ -7,9 +7,7 @@ import { REGISTER_URLS } from '../constants/commons.constants';
 import { RegisterAdaptedResponse, RegisterRequest, RegisterResponse } from '../models/register.model';
 import { UserRegisterModule } from '../user-register.module';
 
-@Injectable({
-  providedIn: UserRegisterModule
-})
+@Injectable()
 export class RegisterService {
 
   constructor(
