@@ -1,0 +1,7 @@
+{
+    "/api/get-users": "/users",
+    "/api/save-user": "/users",
+    "/api/get-user/:id": "/users/:id",
+    "/api/update-user/:id": "/users/:id",
+    "/api/delete-user/:id": "/users/:id"
+}
