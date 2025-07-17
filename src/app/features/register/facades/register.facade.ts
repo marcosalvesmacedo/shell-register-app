@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { UserRegisterModule } from '../user-register.module';
+import { FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnakbarComponent } from '../components/snakbar/snakbar.component';
+import { RegisterFormModel } from '../models/register-form.model';
 import { RegisterService } from '../services/register.service';
 import { RegisterAdaptedResponse } from '../models/register.model';
-import { RegisterFormModel } from '../models/register-form.model';
-import { FormGroup } from '@angular/forms';
 
 @Injectable()
 export class RegisterFacade {
@@ -11,20 +12,31 @@ export class RegisterFacade {
   private registerForm = new RegisterFormModel();
 
   constructor(
-    private registerService: RegisterService
+    private registerService: RegisterService,
+    private matSnackBar: MatSnackBar
   ) { }
 
-  public loginForm(): FormGroup {
+  public get form(): FormGroup {
       return this.registerForm.builder();
   }
   
   public async onRegisterSubmit(): Promise<any> {
-    const loginFormRawValue = this.loginForm().getRawValue();
+    const loginFormRawValue = this.form.getRawValue();
     this.registerService
         .register(loginFormRawValue)
-        .subscribe((user) => {
-          
+        .subscribe((user: RegisterAdaptedResponse) => {
+          this.snakbarOpen(user.fullName);
+          this.form.reset();
         })
   }
+
+  private snakbarOpen(message: string): void {
+        this.matSnackBar.openFromComponent(SnakbarComponent, {
+            data: {
+                message: `o usuário ${message} foi criado com sucesso!`
+            },
+            duration: 3000,
+        });
+    }
 
 }

@@ -41,4 +41,11 @@
   </div>
 </footer>
 
-<app-loader></app-loader>
+<app-loader 
+  [_activeLoader]="loaderService.verifyStatusLoader()">
+</app-loader>
+
+<app-generic-modal-error
+  [_activeGenericModalError]="genericModalErrorService.verifyStatusModalError()"
+  (close)="genericModalErrorService.showModalError($event)">
+</app-generic-modal-error>

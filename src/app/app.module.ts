@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -11,13 +11,15 @@ import { WelcomeComponent } from './features/welcome/welcome.component';
 import { RequestInterceptor } from './core/interceptors/request.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderComponent } from './core/components/loader/loader.component';
+import { GenericModalErrorComponent } from './core/components/modal-error/generic-modal-error.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    LoaderComponent
+    LoaderComponent,
+    GenericModalErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,11 @@ import { LoaderComponent } from './core/components/loader/loader.component';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

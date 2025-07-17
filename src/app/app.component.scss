@@ -1,6 +1,7 @@
 @import "../styles/variables.scss";
 
 .page__footer {
+    position: relative;
     width: 100%;
     background-color: $black;
     color: $white;
@@ -8,5 +9,5 @@
 
 .container__router {
     background-color: $white;
-    padding: 30px;    
+    padding: 30px;
 }

@@ -1,6 +1,8 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { finalize, Observable, tap } from "rxjs";
+import { debounceTime, finalize, Observable, tap } from "rxjs";
+import { LoaderService } from "../services/loader.service";
+import { GenericModalErrorService } from "../services/generic-modal-error.service";
 
 
 @Injectable({
@@ -8,23 +10,32 @@ import { finalize, Observable, tap } from "rxjs";
 })
 export class RequestInterceptor implements HttpInterceptor {
 
+    constructor(
+        private loaderService: LoaderService,
+        private genericModalErrorService: GenericModalErrorService
+    ) {}
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+        this.loaderService.showLoader(true);
 
         return next.handle(request).pipe(
             tap(
                 (success) => {
                     if (success instanceof HttpResponse) {
-                        // salver um token ou algo parecido
+                        // salve um bearer token na sessionStorage ou executa alguma ação
                     }
                 },
                 (error) => {
                     if (error instanceof HttpErrorResponse) {
-                        console.error()
+                        this.genericModalErrorService.showModalError(true);
+                        
                     }
                 }
             ),
             finalize(() => {
-                // finalizar loader
+                setTimeout(() => {
+                    this.loaderService.showLoader(false);
+                }, 2000);
             })
         )
     }

@@ -1,19 +1,19 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { LoaderComponent } from './loader.component';
+import { GenericModalErrorComponent } from './generic-modal-error.component';
 
-describe('LoaderComponent', () => {
+describe('GenericModalErrorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [],
       declarations: [
-        LoaderComponent
+        GenericModalErrorComponent
       ],
     }).compileComponents();
   });
 
   it('should create', () => {
-    const fixture = TestBed.createComponent(LoaderComponent);
+    const fixture = TestBed.createComponent(GenericModalErrorComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });

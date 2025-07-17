@@ -9,6 +9,7 @@ import { RegisterFacade } from './facades/register.facade';
 import { RegisterService } from './services/register.service';
 import { UserRegisterRoutingModule } from './user-register-routing.module';
 import { UserRegisterComponent } from './user-register.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     UserRegisterComponent,
@@ -20,7 +21,8 @@ import { UserRegisterComponent } from './user-register.component';
     UserRegisterRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule    
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [
     RegisterAdapter,
