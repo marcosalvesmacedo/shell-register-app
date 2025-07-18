@@ -1,21 +1,27 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { GenericModalErrorComponent } from './generic-modal-error.component';
 
 describe('GenericModalErrorComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  let component: GenericModalErrorComponent;
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       imports: [],
-      declarations: [
+      providers: [
         GenericModalErrorComponent
-      ],
+      ]
     }).compileComponents();
+    component = TestBed.inject(GenericModalErrorComponent);
+
   });
 
   it('should create', () => {
-    const fixture = TestBed.createComponent(GenericModalErrorComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
+  });
+
+  it('should call closeModal', () => {
+    spyOn(component.close, 'emit');
+    component.closeModal();
+    expect(component.close.emit).toHaveBeenCalledWith(false);
   });
 
 });
