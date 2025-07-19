@@ -1,5 +1,53 @@
 <div class="container">
   <div class="row">
-    welcome
+    <div class="col-md-6">
+      <h3>{{labels.SCREEN_TITLE}}</h3>
+    </div>
   </div>
+
+  <hr/>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <h6>{{labels.SCREEN_SUBTITLE}}</h6>
+    </div>
+  </div>
+  
+  <br />
+  
+  <div class="row">
+    <div class="col-md-8">
+      
+      <mat-list>
+
+        <div mat-subheader>{{labels.INSTRUCTIONS_LIST_TITLE}}</div>
+
+        <div *ngFor="let instructions of labels.WELCOME_INSTRUCTIONS">
+          <mat-list-item>
+            <mat-icon matListItemIcon>{{instructions.ICON}}</mat-icon>
+            <div matListItemTitle>{{instructions.LABEL}}</div>
+            <div matListItemLine>{{instructions.DESCRIPTION}}</div>
+          </mat-list-item>
+          
+          <mat-divider></mat-divider>
+        </div>
+
+      </mat-list>
+
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <mat-card>
+        <mat-card-content>{{labels.ARCHITETURE_INFORMATION}}</mat-card-content>
+        <mat-card-content>{{labels.DESIGN_INFORMATION}}</mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
+
 </div>

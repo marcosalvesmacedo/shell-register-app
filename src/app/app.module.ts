@@ -1,18 +1,20 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './features/welcome/welcome.component';
-import { RequestInterceptor } from './core/interceptors/request.interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderComponent } from './core/components/loader/loader.component';
 import { GenericModalErrorComponent } from './core/components/modal-error/generic-modal-error.component';
-
+import { RequestInterceptor } from './core/interceptors/request.interceptor';
+import { WelcomeComponent } from './features/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { GenericModalErrorComponent } from './core/components/modal-error/generi
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule,
+    MatDividerModule,
+    MatCardModule
   ],
   providers: [
     {

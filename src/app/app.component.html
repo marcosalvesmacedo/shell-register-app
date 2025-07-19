@@ -4,25 +4,30 @@
   <button
     mat-icon-button
     [matMenuTriggerFor]="menu"
-    aria-label="Menu de acesso ao cadastro e visualização de informações">
-    <mat-icon>menu</mat-icon>
+    aria-label="labels.MENU_BUTTON_ARIAL_LABEL">
+    <mat-icon>{{labels.MENU_ICON}}</mat-icon>
   </button>
 
   <mat-menu #menu="matMenu">
     
+    <button mat-menu-item routerLink="/">
+      <mat-icon>{{labels.HOME_ICON}}</mat-icon>
+      <span>{{labels.HOME_LABEL}}</span>
+    </button>
+
     <button mat-menu-item routerLink="/cadastrar-usuarios">
-      <mat-icon>person_add</mat-icon>
-      <span>Cadastrar novo</span>
+      <mat-icon>{{labels.PERSON_ADD_ICON}}</mat-icon>
+      <span>{{labels.PERSON_ADD_LABEL}}</span>
     </button>
 
     <button mat-menu-item routerLink="/lista-de-usuarios">
-      <mat-icon>lists</mat-icon>
-      <span>Lista de cadastrados</span>
+      <mat-icon>{{labels.PERSON_LIST_ICON}}</mat-icon>
+      <span>{{labels.PERSON_LIST_LABEL}}</span>
     </button>
   
   </mat-menu>
 
-  <span>Cadastro de usuários</span>
+  <span>{{labels.TITLE_HEADER}}</span>
 
 </mat-toolbar>
 
@@ -35,7 +40,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <p>&copy; 2025 Cadastros de Usuários S/A</p>
+        <p>&copy; {{labels.COPYRIGHT}}</p>
       </div>
     </div>
   </div>
