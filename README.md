@@ -17,7 +17,7 @@ Para acessar abra o navegador de sua preferência e digite http://localhost:4200
 
 ## Rodar testes unitários
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para rodar os testes unitários você pode executar o comando npm run test. Após executar todos os testes, você pode acessar um relatório de cobertura em html no navegador, que está dentro da pasta raiz do seu projeto através do caminho shell-register-app\coverage\shell-register-app\index.html
 
 ## Arquitetura utilizada
 
