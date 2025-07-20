@@ -9,7 +9,7 @@ Primeiramente faça a instalação do node v20.18.2 e tenha o vscode instalado n
 Para rodar esse projeto é necessário que também estejam disponiveis em um repositório local na sua maquina os projetos mfe-register-app e mfe-success-app. Como de costume utilizar uma pasta chamada workspace-frontend ou com outro nome de sua preferência. 
 
 No projeto shell-register-app, abra uma janela do cmd e navegue até a raiz do projeto e de o comando npm install.
-Após isso, na mesma janela do cmd de o comando npm run start:jsonserver. Esse comando irá rodar o projeto shel-register-app + o json-server.
+Após isso, na mesma janela do cmd de o comando npm run start:jsonserver. Esse comando irá rodar o projeto shel-register-app + o json-server na porta 4200.
 Abra uma janela nova do cmd e navegue até a raiz do projeto mfe-registe-app e execute o comando start:app. Isso irá executar o mfe-register-app na porta 4201.
 Abra outra janela do cmd e navegue até a raiz do projeto mfe-success-app e execute o comando start:app. Isso irá executar o mfe-succes-app na porta 4202.
 
